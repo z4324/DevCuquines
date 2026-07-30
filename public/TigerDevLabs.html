@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="hyDUGnRNRlT2T8IBulNHaRiYleTt-0wBYGmccW4M0zU" />
     <title>Tiger DevLabs · Páginas web, desarrollo web y software para startups</title>
     <meta name="description"
         content="Tiger DevLabs crea páginas web, desarrollo web, aplicaciones y MVPs para startups y negocios que necesitan vender más y verse profesionales." />
@@ -16,19 +17,19 @@
     <meta property="og:title" content="Tiger DevLabs · Páginas web, desarrollo web y software para startups" />
     <meta property="og:description"
         content="Diseñamos y desarrollamos páginas web, landing pages, apps y MVPs para startups y empresas que quieren crecer." />
-    <meta property="og:url" content="https://tigerdevlabs.up.railway.app/" />
-    <meta property="og:image" content="https://tigerdevlabs.up.railway.app/og-image.svg" />
+    <meta property="og:url" content="https://tigerdevlabs.lat/" />
+    <meta property="og:image" content="https://tigerdevlabs.lat/og-image.svg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Tiger DevLabs · Páginas web, desarrollo web y software para startups" />
     <meta name="twitter:description"
         content="Páginas web, desarrollo web, landing pages y MVPs para startups y negocios." />
-    <meta name="twitter:image" content="https://tigerdevlabs.up.railway.app/og-image.svg" />
+    <meta name="twitter:image" content="https://tigerdevlabs.lat/og-image.svg" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareCompany",
       "name": "Tiger DevLabs",
-      "url": "https://tigerdevlabs.up.railway.app/",
+    "url": "https://tigerdevlabs.lat/",
       "description": "Tiger DevLabs crea páginas web, desarrollo web, aplicaciones y MVPs para startups y negocios.",
       "areaServed": "MX",
       "knowsAbout": [
@@ -100,7 +101,8 @@
             position: absolute;
             border-radius: 50%;
             filter: blur(120px);
-            opacity: .45
+            opacity: .45;
+            pointer-events: none;
         }
 
         .blob.b1 {
@@ -170,7 +172,19 @@
         .brand-logo {
             font-weight: 700;
             letter-spacing: -.5px;
-            font-size: 1.3rem
+            font-size: 1.3rem;
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .brand-mascot {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: 50% 30%;
+            border: 1px solid var(--glass-border);
         }
 
         .brand-dot {
@@ -516,8 +530,8 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg fixed-top py-3">
         <div class="container">
-            <a class="navbar-brand brand-logo gradient-text" href="#">Nahua<span
-                    style="color:var(--text)">labs</span><span class="brand-dot">.</span></a>
+                <a class="navbar-brand brand-logo gradient-text" href="#"><img src="/tiger-mascot.jpg" alt="Tiger DevLabs" class="brand-mascot">Tiger <span
+                    style="color:var(--text)">DevLabs</span><span class="brand-dot">.</span></a>
             <button class="navbar-toggler border-0 text-light" type="button" data-bs-toggle="collapse"
                 data-bs-target="#nav">
                 <i class="bi bi-list fs-2"></i>
@@ -750,27 +764,13 @@
         <div class="container">
             <div class="glass cta-wrap reveal">
                 <span class="blob b1" style="opacity:.15;top:-40px;left:30%"></span>
-                <span class="section-tag">Contacto</span>
+                <img src="/tiger-mascot.jpg" alt="Tiger DevLabs" class="brand-mascot" style="display:block;width:180px;height:180px;object-position:50% 20%;margin:0 auto 1rem">
+                <span class="section-tag d-block" style="font-size:1.1rem">Contacto</span>
                 <h2 class="section-title mt-2">¿Tienes un proyecto <span class="gradient-text">en mente</span>?</h2>
                 <p class="section-sub mx-auto mt-3">Cuéntanos qué quieres construir. Respondemos rápido — ya sea una página web, landing page, tienda, MVP o app para tu startup o negocio.</p>
-                <form id="contactForm" class="row g-3 justify-content-center mt-3">
-                    <input type="text" name="_website" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" tabindex="-1" autocomplete="off">
-                    <div class="col-md-5"><input class="form-control" id="inputNombre" name="nombre" type="text" placeholder="Tu nombre" required minlength="2" maxlength="100">
-                    </div>
-                    <div class="col-md-5"><input class="form-control" id="inputEmail" name="email" type="email" placeholder="Tu correo" required maxlength="254">
-                    </div>
-                    <div class="col-md-10"><textarea class="form-control" id="inputMensaje" name="mensaje" rows="4"
-                            placeholder="Cuéntanos sobre tu proyecto — ¿qué necesitas? ¿para qué tipo de negocio?" required minlength="10" maxlength="1000"></textarea></div>
-                    <div class="col-md-10 d-flex justify-content-center">
-                        <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-theme="dark"></div>
-                    </div>
-                    <div class="col-md-10 d-grid d-md-block"><button class="btn-grad" id="btnEnviar" type="submit"><i
-                                class="bi bi-send me-2"></i>Enviar mensaje</button></div>
-                </form>
-                <p id="msg-ok" class="mono small mt-3 d-none" style="color:#22c55e"><i
-                        class="bi bi-check-circle me-1"></i>¡Gracias! Te contactaremos pronto.</p>
-                <p id="msg-err" class="mono small mt-3 d-none" style="color:#ef4444"><i
-                        class="bi bi-exclamation-triangle me-1"></i><span id="msg-err-text"></span></p>
+                <div class="d-flex justify-content-center mt-4">
+                    <a class="btn-grad" href="/ir/whatsapp" target="_blank" rel="noopener"><i class="bi bi-whatsapp me-2"></i>Escríbenos por WhatsApp</a>
+                </div>
             </div>
         </div>
     </section>
@@ -778,7 +778,7 @@
     <!-- FOOTER -->
     <footer>
         <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
-                <div class="brand-logo gradient-text">Tiger <span style="color:var(--text)">DevLabs</span><span
+                <div class="brand-logo gradient-text"><img src="/tiger-mascot.jpg" alt="Tiger DevLabs" class="brand-mascot">Tiger <span style="color:var(--text)">DevLabs</span><span
                     class="brand-dot">.</span></div>
                 <p class="mb-0 small mono">&copy; <span id="yr"></span> Tiger DevLabs</p>
             <div class="d-flex gap-2">
@@ -789,7 +789,6 @@
         </div>
     </footer>
 
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.getElementById('yr').textContent = new Date().getFullYear();
@@ -797,55 +796,6 @@
             entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
         }, { threshold: .15 });
         document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-        let csrfToken = '';
-        fetch('/api/csrf-token', { credentials: 'same-origin' })
-            .then(r => r.json())
-            .then(d => { csrfToken = d.token; })
-            .catch(() => {});
-
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const btn = document.getElementById('btnEnviar');
-            const msgOk = document.getElementById('msg-ok');
-            const msgErr = document.getElementById('msg-err');
-            const msgErrText = document.getElementById('msg-err-text');
-            msgOk.classList.add('d-none');
-            msgErr.classList.add('d-none');
-            btn.disabled = true;
-            btn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Enviando...';
-            try {
-                const res = await fetch('/api/contacto', {
-                    method: 'POST',
-                    credentials: 'same-origin',
-                    headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': csrfToken },
-                    body: JSON.stringify({
-                        nombre: document.getElementById('inputNombre').value,
-                        email: document.getElementById('inputEmail').value,
-                        mensaje: document.getElementById('inputMensaje').value,
-                        _website: e.target.querySelector('[name="_website"]').value,
-                        turnstile: e.target.querySelector('[name="cf-turnstile-response"]')?.value,
-                    }),
-                });
-                const data = await res.json();
-                if (res.ok && data.ok) {
-                    msgOk.classList.remove('d-none');
-                    e.target.reset();
-                    if (window.turnstile) turnstile.reset();
-                    fetch('/api/csrf-token', { credentials: 'same-origin' })
-                        .then(r => r.json()).then(d => { csrfToken = d.token; }).catch(() => {});
-                } else {
-                    msgErrText.textContent = data.error || 'Error al enviar. Intenta de nuevo.';
-                    msgErr.classList.remove('d-none');
-                    if (window.turnstile) turnstile.reset();
-                }
-            } catch {
-                msgErrText.textContent = 'Error de conexión. Verifica tu internet e intenta de nuevo.';
-                msgErr.classList.remove('d-none');
-            }
-            btn.disabled = false;
-            btn.innerHTML = '<i class="bi bi-send me-2"></i>Enviar mensaje';
-        });
     </script>
 </body>
 
