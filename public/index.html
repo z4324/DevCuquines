@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="hyDUGnRNRlT2T8IBulNHaRiYleTt-0wBYGmccW4M0zU" />
+    <title>Tiger DevLabs · Páginas web, desarrollo web y software para startups</title>
+    <meta name="description"
+        content="Tiger DevLabs crea páginas web, desarrollo web, aplicaciones y MVPs para startups y negocios que necesitan vender más y verse profesionales." />
+    <meta name="keywords"
+        content="paginas web, desarrollo web, desarrollo de software, startups, MVP, landing page, aplicaciones web, agencia web, Tiger DevLabs" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="theme-color" content="#07070b" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Tiger DevLabs · Páginas web, desarrollo web y software para startups" />
+    <meta property="og:description"
+        content="Diseñamos y desarrollamos páginas web, landing pages, apps y MVPs para startups y empresas que quieren crecer." />
+    <meta property="og:url" content="https://tigerdevlabs.lat/" />
+    <meta property="og:image" content="https://tigerdevlabs.lat/og-image.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tiger DevLabs · Páginas web, desarrollo web y software para startups" />
+    <meta name="twitter:description"
+        content="Páginas web, desarrollo web, landing pages y MVPs para startups y negocios." />
+    <meta name="twitter:image" content="https://tigerdevlabs.lat/og-image.svg" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareCompany",
+      "name": "Tiger DevLabs",
+    "url": "https://tigerdevlabs.lat/",
+      "description": "Tiger DevLabs crea páginas web, desarrollo web, aplicaciones y MVPs para startups y negocios.",
+      "areaServed": "MX",
+      "knowsAbout": [
+        "páginas web",
+        "desarrollo web",
+        "aplicaciones web",
+        "MVPs",
+        "startups",
+        "landing pages"
+      ],
+      "sameAs": []
+    }
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <style>
+        :root {
+            --bg: #07070b;
+            --bg-2: #0d0d16;
+            --text: #e9e9f1;
+            --muted: #9b9bb0;
+            --g1: #7c3aed;
+            --g2: #22d3ee;
+            --g3: #ec4899;
+            --glass: rgba(255, 255, 255, .045);
+            --glass-border: rgba(255, 255, 255, .10);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace
+        }
+
+        a {
+            text-decoration: none
+        }
+
+        ::selection {
+            background: rgba(124, 58, 237, .4)
+        }
+
+        .bg-fx {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            overflow: hidden
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: .45;
+            pointer-events: none;
+        }
+
+        .blob.b1 {
+            width: 480px;
+            height: 480px;
+            background: var(--g1);
+            top: -120px;
+            left: -80px;
+            animation: float 14s ease-in-out infinite
+        }
+
+        .blob.b2 {
+            width: 420px;
+            height: 420px;
+            background: var(--g2);
+            bottom: -140px;
+            right: -60px;
+            animation: float 18s ease-in-out infinite reverse
+        }
+
+        .blob.b3 {
+            width: 360px;
+            height: 360px;
+            background: var(--g3);
+            top: 42%;
+            left: 55%;
+            opacity: .22;
+            animation: float 22s ease-in-out infinite
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            50% {
+                transform: translate(40px, -40px)
+            }
+        }
+
+        .grid-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image: linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
+            background-size: 48px 48px;
+            -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 35%, transparent 80%);
+            mask-image: radial-gradient(ellipse at 50% 0%, #000 35%, transparent 80%)
+        }
+
+        .glass {
+            background: var(--glass);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px
+        }
+
+        .navbar {
+            backdrop-filter: blur(14px);
+            background: rgba(7, 7, 11, .55);
+            border-bottom: 1px solid var(--glass-border)
+        }
+
+        .brand-logo {
+            font-weight: 700;
+            letter-spacing: -.5px;
+            font-size: 1.3rem;
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .brand-mascot {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: 50% 30%;
+            border: 1px solid var(--glass-border);
+        }
+
+        .brand-dot {
+            color: var(--g2)
+        }
+
+        .nav-link {
+            color: var(--muted) !important;
+            font-weight: 500;
+            transition: .2s
+        }
+
+        .nav-link:hover {
+            color: var(--text) !important
+        }
+
+        .gradient-text {
+            background: linear-gradient(120deg, var(--g1), var(--g2) 55%, var(--g3));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent
+        }
+
+        .btn-grad {
+            background: linear-gradient(120deg, var(--g1), var(--g2));
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: .72rem 1.5rem;
+            font-weight: 600;
+            transition: .25s;
+            box-shadow: 0 8px 30px rgba(124, 58, 237, .35)
+        }
+
+        .btn-grad:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(34, 211, 238, .4);
+            color: #fff
+        }
+
+        .btn-ghost {
+            border: 1px solid var(--glass-border);
+            color: var(--text);
+            border-radius: 12px;
+            padding: .72rem 1.5rem;
+            font-weight: 600;
+            background: transparent;
+            transition: .25s
+        }
+
+        .btn-ghost:hover {
+            background: var(--glass);
+            color: var(--text);
+            border-color: var(--g2)
+        }
+
+        .hero {
+            padding: 9rem 0 5rem
+        }
+
+        .badge-soft {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 999px;
+            padding: .4rem 1rem;
+            font-size: .85rem;
+            color: var(--muted)
+        }
+
+        .ping {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22c55e;
+            display: inline-block;
+            box-shadow: 0 0 0 0 rgba(34, 197, 94, .6);
+            animation: ping 1.6s infinite
+        }
+
+        @keyframes ping {
+            0% {
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, .6)
+            }
+
+            70% {
+                box-shadow: 0 0 0 8px rgba(34, 197, 94, 0)
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0)
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.4rem, 6vw, 4.6rem);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -1.5px
+        }
+
+        .hero .lead {
+            color: var(--muted);
+            max-width: 560px;
+            font-size: 1.12rem
+        }
+
+        .code-window {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .84rem;
+            line-height: 1.75;
+            padding: 0
+        }
+
+        .code-bar {
+            padding: .7rem 1rem;
+            border-bottom: 1px solid var(--glass-border)
+        }
+
+        .code-dots span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px
+        }
+
+        .code-body {
+            padding: 1.1rem 1.3rem;
+            overflow: auto
+        }
+
+        .tok-key {
+            color: #c084fc
+        }
+
+        .tok-fn {
+            color: #22d3ee
+        }
+
+        .tok-str {
+            color: #86efac
+        }
+
+        .tok-com {
+            color: #6b7280
+        }
+
+        .tok-num {
+            color: #fb923c
+        }
+
+        section {
+            padding: 5rem 0
+        }
+
+        .section-tag {
+            color: var(--g2);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: .78rem
+        }
+
+        h2.section-title {
+            font-weight: 700;
+            font-size: clamp(1.8rem, 4vw, 2.7rem);
+            letter-spacing: -1px
+        }
+
+        .section-sub {
+            color: var(--muted);
+            max-width: 560px
+        }
+
+        .feature-card {
+            padding: 1.8rem;
+            height: 100%;
+            transition: .25s
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--g2)
+        }
+
+        .feature-ico {
+            width: 52px;
+            height: 52px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            font-size: 1.4rem;
+            background: linear-gradient(120deg, rgba(124, 58, 237, .28), rgba(34, 211, 238, .28));
+            border: 1px solid var(--glass-border)
+        }
+
+        .team-card {
+            padding: 2rem;
+            text-align: center;
+            transition: .25s
+        }
+
+        .team-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--g3)
+        }
+
+        .avatar {
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+            background: linear-gradient(120deg, var(--g1), var(--g2));
+            color: #fff
+        }
+
+        .role-tag {
+            color: var(--g2);
+            font-size: .85rem;
+            font-weight: 600
+        }
+
+        .social-ico {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            border-radius: 10px;
+            border: 1px solid var(--glass-border);
+            color: var(--muted);
+            transition: .2s
+        }
+
+        .social-ico:hover {
+            color: var(--text);
+            border-color: var(--g2);
+            transform: translateY(-3px)
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 999px;
+            padding: .55rem 1.1rem;
+            margin: .3rem;
+            font-weight: 500;
+            transition: .2s
+        }
+
+        .chip:hover {
+            border-color: var(--g2);
+            transform: translateY(-3px)
+        }
+
+        .stat h3 {
+            font-size: 2.7rem;
+            font-weight: 700
+        }
+
+        .stat p {
+            color: var(--muted);
+            margin: 0
+        }
+
+        .step {
+            padding: 1.6rem;
+            height: 100%;
+            position: relative;
+            transition: .25s
+        }
+
+        .step:hover {
+            transform: translateY(-6px);
+            border-color: var(--g2)
+        }
+
+        .step .num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(120deg, var(--g1), var(--g2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent
+        }
+
+        .cta-wrap {
+            padding: 3.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden
+        }
+
+        .form-control {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            color: var(--text);
+            border-radius: 12px;
+            padding: .85rem 1rem
+        }
+
+        .form-control:focus {
+            background: var(--glass);
+            color: var(--text);
+            border-color: var(--g2);
+            box-shadow: 0 0 0 .2rem rgba(34, 211, 238, .15)
+        }
+
+        .form-control::placeholder {
+            color: #6b7280
+        }
+
+        footer {
+            border-top: 1px solid var(--glass-border);
+            padding: 2.6rem 0;
+            color: var(--muted)
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: .7s ease
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: none
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-fx"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+    <div class="grid-overlay"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
+        <div class="container">
+                <a class="navbar-brand brand-logo gradient-text" href="#"><img src="/tiger-mascot.jpg" alt="Tiger DevLabs" class="brand-mascot">Tiger <span
+                    style="color:var(--text)">DevLabs</span><span class="brand-dot">.</span></a>
+            <button class="navbar-toggler border-0 text-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#nav">
+                <i class="bi bi-list fs-2"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#equipo">Equipo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#stack">Stack</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#proceso">Proceso</a></li>
+                    <li class="nav-item ms-lg-2"><a class="btn-grad" href="#contacto">Hablemos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <span class="badge-soft mono"><span class="ping me-2"></span>Disponibles para nuevos proyectos</span>
+                    <h1 class="mt-4">Ingeniería de software <span class="gradient-text">a la medida</span>.</h1>
+                    <p class="lead mt-3">Somos <strong>Tiger DevLabs</strong>, un equipo de ingenieros de desarrollo de México 🇲🇽. Creamos páginas web, desarrollo web, apps y MVPs para startups y negocios que quieren verse mejor, vender más y crecer rápido.</p>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="#contacto" class="btn-grad"><i class="bi bi-rocket-takeoff me-2"></i>Iniciar proyecto</a>
+                        <a href="#servicios" class="btn-ghost">Ver servicios</a>
+                    </div>
+                    <div class="d-flex gap-4 mt-5">
+                        <div class="stat">
+                            <h3 class="gradient-text">100%</h3>
+                            <p class="mono small">Código propio</p>
+                        </div>
+                        <div class="stat">
+                            <h3 class="gradient-text">2</h3>
+                            <p class="mono small">Ingenieros</p>
+                        </div>
+                        <div class="stat">
+                            <h3 class="gradient-text">24/7</h3>
+                            <p class="mono small">Compromiso</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="glass code-window reveal">
+                        <div class="code-bar d-flex align-items-center">
+                            <span class="code-dots"><span style="background:#ff5f56"></span><span
+                                    style="background:#ffbd2e"></span><span style="background:#27c93f"></span></span>
+                            <span class="mono ms-2 text-secondary small">tiger-devlabs.ts</span>
+                        </div>
+                        <div class="code-body">
+                            <div><span class="tok-com">// Lo que hacemos mejor</span></div>
+                            <div><span class="tok-key">const</span> <span class="tok-fn">tigerDevLabs</span> = {</div>
+                            <div>&nbsp;&nbsp;mision: <span class="tok-str">"construir, escalar, dominar"</span>,</div>
+                            <div>&nbsp;&nbsp;stack: [<span class="tok-str">"React"</span>, <span
+                                    class="tok-str">"Node"</span>, <span class="tok-str">"TS"</span>],</div>
+                            <div>&nbsp;&nbsp;velocidad: <span class="tok-num">10</span>/<span class="tok-num">10</span>,
+                            </div>
+                            <div>&nbsp;&nbsp;<span class="tok-fn">deploy</span>: () => <span class="tok-str">"&#9889; en
+                                    minutos"</span>,</div>
+                            <div>};</div>
+                            <div class="mt-2"><span class="tok-fn">export default</span> tigerDevLabs;</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SERVICIOS -->
+    <section id="servicios">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <span class="section-tag">Servicios</span>
+                <h2 class="section-title mt-2">Lo que <span class="gradient-text">construimos</span></h2>
+                <p class="section-sub mx-auto mt-3">De la idea al deploy. Cubrimos todo el ciclo de desarrollo con estándares profesionales para páginas web, startups, landing pages, apps y MVPs listos para vender.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="glass feature-card">
+                        <div class="feature-ico mb-3"><i class="bi bi-window-stack"></i></div>
+                        <h5 class="fw-bold">Aplicaciones web</h5>
+                        <p class="text-secondary mb-0">SPAs y plataformas modernas con React, Next.js y arquitecturas limpias. <span style="color:var(--g2)">— Tu página de negocio, catálogo, landing o MVP para startup, listo para usarse desde el celular o la compu.</span></p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="glass feature-card">
+                        <div class="feature-ico mb-3"><i class="bi bi-hdd-network"></i></div>
+                        <h5 class="fw-bold">Backend & APIs</h5>
+                        <p class="text-secondary mb-0">APIs REST y GraphQL robustas, seguras y listas para escalar. <span style="color:var(--g2)">— Es todo lo que funciona "detrás de cámaras": guardar datos, procesar pedidos, pagos, etc.</span></p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="glass feature-card">
+                        <div class="feature-ico mb-3"><i class="bi bi-palette"></i></div>
+                        <h5 class="fw-bold">UI / UX Design</h5>
+                        <p class="text-secondary mb-0">Interfaces oscuras, glassmorphism y micro-interacciones que enamoran. <span style="color:var(--g2)">— Que tu página se vea bonita, profesional y fácil de usar para todos.</span></p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="glass feature-card">
+                        <div class="feature-ico mb-3"><i class="bi bi-phone"></i></div>
+                        <h5 class="fw-bold">Responsive total</h5>
+                        <p class="text-secondary mb-0">Todo se ve perfecto en móvil, tablet y desktop. Sin excusas. <span style="color:var(--g2)">— Se ve bien en cualquier pantalla: celular, tablet o computadora.</span></p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="glass feature-card">
+                        <div class="feature-ico mb-3"><i class="bi bi-speedometer2"></i></div>
+                        <h5 class="fw-bold">Performance</h5>
+                        <p class="text-secondary mb-0">Optimización, SEO y Core Web Vitals en verde. Rápido de verdad. <span style="color:var(--g2)">— Tu página carga rápido y aparece cuando la buscan en Google.</span></p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="glass feature-card">
+                        <div class="feature-ico mb-3"><i class="bi bi-cloud-arrow-up"></i></div>
+                        <h5 class="fw-bold">DevOps & Deploy</h5>
+                        <p class="text-secondary mb-0">CI/CD, contenedores y despliegues automáticos en la nube. <span style="color:var(--g2)">— Tu página siempre en línea, actualizada y sin caídas.</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EQUIPO -->
+    <section id="equipo">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <span class="section-tag">Equipo</span>
+                <h2 class="section-title mt-2">Las mentes detrás de <span class="gradient-text">Tiger DevLabs</span></h2>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-5 col-lg-4 reveal">
+                    <div class="glass team-card">
+                        <div class="avatar">JZ</div>
+                        <h5 class="fw-bold mb-1">Javier</h5>
+                        <div class="role-tag mono">Ingeniero de Desarrollo</div>
+                        <p class="text-secondary mt-3 mb-3">Arquitectura, frontend, backend y experiencia de usuario. Convierte ideas en interfaces vivas — desde el diseño que ves hasta el motor que lo hace funcionar.</p>
+                        <div class="d-flex justify-content-center gap-2">
+                            <a href="#" class="social-ico"><i class="bi bi-github"></i></a>
+                            <a href="#" class="social-ico"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="social-ico"><i class="bi bi-globe"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 col-lg-4 reveal">
+                    <div class="glass team-card">
+                        <div class="avatar" style="background:linear-gradient(120deg,var(--g3),var(--g1))">HB</div>
+                        <h5 class="fw-bold mb-1">Hiram</h5>
+                        <div class="role-tag mono">Ingeniero de Desarrollo</div>
+                        <p class="text-secondary mt-3 mb-3">Frontend, backend, base de datos, QA y GitHub. La columna vertebral de cada proyecto — construye, prueba y se asegura de que todo funcione antes de entregarlo.</p>
+                        <div class="d-flex justify-content-center gap-2">
+                            <a href="#" class="social-ico"><i class="bi bi-github"></i></a>
+                            <a href="#" class="social-ico"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="social-ico"><i class="bi bi-globe"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STACK -->
+    <section id="stack">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <span class="section-tag">Tecnologías</span>
+                <h2 class="section-title mt-2">Nuestro <span class="gradient-text">stack</span></h2>
+                <p class="section-sub mx-auto mt-3">Las herramientas profesionales que usamos para crear tu proyecto, desde una landing hasta una plataforma para startups.</p>
+            </div>
+            <div class="text-center reveal">
+                <span class="chip"><i class="bi bi-filetype-jsx"></i>React</span>
+                <span class="chip"><i class="bi bi-lightning-charge"></i>Next.js</span>
+                <span class="chip"><i class="bi bi-filetype-ts"></i>TypeScript</span>
+                <span class="chip"><i class="bi bi-hexagon"></i>Node.js</span>
+                <span class="chip"><i class="bi bi-database"></i>PostgreSQL</span>
+                <span class="chip"><i class="bi bi-box"></i>Docker</span>
+                <span class="chip"><i class="bi bi-wind"></i>Tailwind</span>
+                <span class="chip"><i class="bi bi-git"></i>Git</span>
+                <span class="chip"><i class="bi bi-cloud"></i>AWS</span>
+                <span class="chip"><i class="bi bi-bootstrap"></i>Bootstrap</span>
+                <span class="chip"><i class="bi bi-fire"></i>Firebase</span>
+                <span class="chip"><i class="bi bi-graph-up"></i>GraphQL</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section id="proceso">
+        <div class="container">
+            <div class="text-center mb-5 reveal">
+                <span class="section-tag">Proceso</span>
+                <h2 class="section-title mt-2">Cómo <span class="gradient-text">trabajamos</span></h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="glass step">
+                        <div class="num">01</div>
+                        <h6 class="fw-bold mt-2">Descubrimiento</h6>
+                        <p class="text-secondary small mb-0">Entendemos tu idea, objetivos y usuarios. <span style="color:var(--g2)">— Nos platícas qué necesitas y nosotros te orientamos.</span></p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="glass step">
+                        <div class="num">02</div>
+                        <h6 class="fw-bold mt-2">Diseño</h6>
+                        <p class="text-secondary small mb-0">Prototipos y UI que reflejan tu marca. <span style="color:var(--g2)">— Te mostramos cómo va a quedar antes de construirlo.</span></p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="glass step">
+                        <div class="num">03</div>
+                        <h6 class="fw-bold mt-2">Desarrollo</h6>
+                        <p class="text-secondary small mb-0">Código limpio, probado y documentado. <span style="color:var(--g2)">— Lo programamos con cuidado y lo probamos hasta que funcione perfecto.</span></p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal">
+                    <div class="glass step">
+                        <div class="num">04</div>
+                        <h6 class="fw-bold mt-2">Deploy</h6>
+                        <p class="text-secondary small mb-0">Lanzamiento, monitoreo y soporte. <span style="color:var(--g2)">— Tu página queda en internet, lista para que la vean tus clientes.</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+        <div class="container">
+            <div class="glass cta-wrap reveal">
+                <span class="blob b1" style="opacity:.15;top:-40px;left:30%"></span>
+                <img src="/tiger-mascot.jpg" alt="Tiger DevLabs" class="brand-mascot" style="display:block;width:180px;height:180px;object-position:50% 20%;margin:0 auto 1rem">
+                <span class="section-tag d-block" style="font-size:1.1rem">Contacto</span>
+                <h2 class="section-title mt-2">¿Tienes un proyecto <span class="gradient-text">en mente</span>?</h2>
+                <p class="section-sub mx-auto mt-3">Cuéntanos qué quieres construir. Respondemos rápido — ya sea una página web, landing page, tienda, MVP o app para tu startup o negocio.</p>
+                <div class="d-flex justify-content-center mt-4">
+                    <a class="btn-grad" href="/ir/whatsapp" target="_blank" rel="noopener"><i class="bi bi-whatsapp me-2"></i>Escríbenos por WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <div class="brand-logo gradient-text"><img src="/tiger-mascot.jpg" alt="Tiger DevLabs" class="brand-mascot">Tiger <span style="color:var(--text)">DevLabs</span><span
+                    class="brand-dot">.</span></div>
+                <p class="mb-0 small mono">&copy; <span id="yr"></span> Tiger DevLabs</p>
+            <div class="d-flex gap-2">
+                <a href="#" class="social-ico"><i class="bi bi-github"></i></a>
+                <a href="#" class="social-ico"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="social-ico"><i class="bi bi-twitter-x"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('yr').textContent = new Date().getFullYear();
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: .15 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    </script>
+</body>
+
+</html>
