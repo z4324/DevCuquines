@@ -40,7 +40,13 @@
         "startups",
         "landing pages"
       ],
-      "sameAs": []
+      "email": [
+        "contacto@tigerdevlabs.lat",
+        "soporte@tigerdevlabs.lat"
+      ],
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61592884616045"
+      ]
     }
     </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -485,16 +491,16 @@
             overflow: hidden
         }
 
-        .form-control {
-            background: var(--glass);
+        .form-control, .form-select {
+            background: var(--bg-2);
             border: 1px solid var(--glass-border);
             color: var(--text);
             border-radius: 12px;
-            padding: .85rem 1rem
+            padding: .65rem .85rem
         }
 
-        .form-control:focus {
-            background: var(--glass);
+        .form-control:focus, .form-select:focus {
+            background: var(--bg-2);
             color: var(--text);
             border-color: var(--g2);
             box-shadow: 0 0 0 .2rem rgba(34, 211, 238, .15)
@@ -506,8 +512,30 @@
 
         footer {
             border-top: 1px solid var(--glass-border);
-            padding: 2.6rem 0;
+            padding: 3.5rem 0 2rem;
             color: var(--muted)
+        }
+
+        footer a.footer-link {
+            color: var(--muted);
+            transition: .2s;
+            display: inline-block;
+        }
+
+        footer a.footer-link:hover {
+            color: var(--g2);
+            transform: translateX(3px);
+        }
+
+        .modal-content.glass-modal {
+            background: var(--bg-2);
+            border: 1px solid var(--glass-border);
+            color: var(--text);
+            border-radius: 20px;
+        }
+
+        .modal-header, .modal-footer {
+            border-color: var(--glass-border);
         }
 
         .reveal {
@@ -768,8 +796,10 @@
                 <span class="section-tag d-block" style="font-size:1.1rem">Contacto</span>
                 <h2 class="section-title mt-2">¿Tienes un proyecto <span class="gradient-text">en mente</span>?</h2>
                 <p class="section-sub mx-auto mt-3">Cuéntanos qué quieres construir. Respondemos rápido — ya sea una página web, landing page, tienda, MVP o app para tu startup o negocio.</p>
-                <div class="d-flex justify-content-center mt-4">
+                <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
                     <a class="btn-grad" href="/ir/whatsapp" target="_blank" rel="noopener"><i class="bi bi-whatsapp me-2"></i>Escríbenos por WhatsApp</a>
+                    <a class="btn-ghost" href="mailto:contacto@tigerdevlabs.lat"><i class="bi bi-envelope-at me-2"></i>contacto@tigerdevlabs.lat</a>
+                    <a class="btn-ghost" href="mailto:soporte@tigerdevlabs.lat"><i class="bi bi-headset me-2"></i>soporte@tigerdevlabs.lat</a>
                 </div>
             </div>
         </div>
@@ -777,17 +807,158 @@
 
     <!-- FOOTER -->
     <footer>
-        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
-                <div class="brand-logo gradient-text"><img src="/tiger-mascot.jpg" alt="Tiger DevLabs" class="brand-mascot">Tiger <span style="color:var(--text)">DevLabs</span><span
-                    class="brand-dot">.</span></div>
-                <p class="mb-0 small mono">&copy; <span id="yr"></span> Tiger DevLabs</p>
-            <div class="d-flex gap-2">
-                <a href="#" class="social-ico"><i class="bi bi-github"></i></a>
-                <a href="#" class="social-ico"><i class="bi bi-linkedin"></i></a>
-                <a href="#" class="social-ico"><i class="bi bi-twitter-x"></i></a>
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <!-- Columna 1: Marca & Redes -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="brand-logo gradient-text mb-3">
+                        <img src="/tiger-mascot.jpg" alt="Tiger DevLabs" class="brand-mascot">Tiger <span style="color:var(--text)">DevLabs</span><span class="brand-dot">.</span>
+                    </div>
+                    <p class="small text-secondary mb-3">Ingeniería de software a la medida, desarrollo web, apps y MVPs profesionales para startups y empresas.</p>
+                    <div class="d-flex gap-2">
+                        <a href="https://www.facebook.com/profile.php?id=61592884616045" target="_blank" rel="noopener" class="social-ico" title="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-ico" title="GitHub"><i class="bi bi-github"></i></a>
+                        <a href="#" class="social-ico" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-ico" title="X / Twitter"><i class="bi bi-twitter-x"></i></a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Navegación -->
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold text-light mb-3 mono">Navegación</h6>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#servicios" class="footer-link small mb-2">Servicios</a></li>
+                        <li><a href="#equipo" class="footer-link small mb-2">Equipo</a></li>
+                        <li><a href="#stack" class="footer-link small mb-2">Stack</a></li>
+                        <li><a href="#proceso" class="footer-link small mb-2">Proceso</a></li>
+                        <li><a href="#contacto" class="footer-link small mb-2">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Sección de Ayuda -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold text-light mb-3 mono"><i class="bi bi-question-circle me-2" style="color:var(--g2)"></i>Ayuda y Soporte</h6>
+                    <ul class="list-unstyled mb-0 small">
+                        <li class="mb-3">
+                            <span class="d-block text-secondary">Contacto general:</span>
+                            <a href="mailto:contacto@tigerdevlabs.lat" class="footer-link"><i class="bi bi-envelope-at me-1"></i>contacto@tigerdevlabs.lat</a>
+                        </li>
+                        <li class="mb-3">
+                            <span class="d-block text-secondary">Soporte técnico:</span>
+                            <a href="mailto:soporte@tigerdevlabs.lat" class="footer-link"><i class="bi bi-headset me-1"></i>soporte@tigerdevlabs.lat</a>
+                        </li>
+                        <li class="mb-3">
+                            <span class="d-block text-secondary">Atención rápida:</span>
+                            <a href="/ir/whatsapp" target="_blank" rel="noopener" class="footer-link"><i class="bi bi-whatsapp me-1"></i>WhatsApp</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Formulario a Correo -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="glass p-3 rounded-4">
+                        <h6 class="fw-bold text-light mb-2 mono small"><i class="bi bi-send me-2" style="color:var(--g2)"></i>Enviar Mensaje</h6>
+                        <form onsubmit="enviarEmailFooter(event)">
+                            <div class="mb-2">
+                                <label for="emailDestinatario" class="form-label small mb-1 text-secondary">Destinatario</label>
+                                <select id="emailDestinatario" class="form-select form-select-sm" required>
+                                    <option value="contacto@tigerdevlabs.lat">Contacto General</option>
+                                    <option value="soporte@tigerdevlabs.lat">Soporte Técnico</option>
+                                </select>
+                            </div>
+                            <div class="mb-2">
+                                <label for="emailAsunto" class="form-label small mb-1 text-secondary">Asunto</label>
+                                <input type="text" id="emailAsunto" class="form-control form-control-sm" placeholder="Ej. Consulta o cotización" required>
+                            </div>
+                            <div class="mb-2">
+                                <label for="emailMensaje" class="form-label small mb-1 text-secondary">Mensaje</label>
+                                <textarea id="emailMensaje" class="form-control form-control-sm" rows="2" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn-grad btn-sm w-100 mt-2 py-2 small"><i class="bi bi-envelope-paper me-1"></i> Enviar por Correo</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-4 border-top border-secondary border-opacity-25 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <p class="mb-0 small mono">&copy; <span id="yr"></span> Tiger DevLabs. Todos los derechos reservados.</p>
+                <div class="d-flex flex-wrap gap-2 gap-md-3 small text-secondary align-items-center">
+                    <a href="#modalPrivacidad" data-bs-toggle="modal" class="footer-link small mb-0"><i class="bi bi-shield-check me-1"></i>Aviso de Privacidad</a>
+                    <span class="text-secondary opacity-50">•</span>
+                    <a href="#modalTerminos" data-bs-toggle="modal" class="footer-link small mb-0"><i class="bi bi-file-text me-1"></i>Términos y Condiciones</a>
+                    <span class="text-secondary opacity-50">•</span>
+                    <a href="#modalDerechos" data-bs-toggle="modal" class="footer-link small mb-0"><i class="bi bi-c-circle me-1"></i>Derechos de Autor</a>
+                </div>
+                <p class="mb-0 small text-secondary">Hecho con <i class="bi bi-heart-fill text-danger"></i> en México 🇲🇽</p>
             </div>
         </div>
     </footer>
+
+    <!-- MODAL PRIVACIDAD -->
+    <div class="modal fade" id="modalPrivacidad" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content glass-modal">
+                <div class="modal-header">
+                    <h5 class="modal-header-title fw-bold text-light mb-0 mono"><i class="bi bi-shield-check me-2" style="color:var(--g2)"></i>Aviso de Privacidad</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body text-secondary small">
+                    <p class="text-light fw-medium">En Tiger DevLabs nos tomamos muy en serio la seguridad y confidencialidad de tus datos.</p>
+                    <h6 class="text-light fw-bold mt-3">1. Recopilación de Datos</h6>
+                    <p>Los datos solicitados a través de formularios o correo (nombre, email, teléfono o detalles de proyecto) se recopilan únicamente para brindarte información, cotizaciones y prestar servicios de desarrollo web y software.</p>
+                    <h6 class="text-light fw-bold mt-3">2. Uso de la Información</h6>
+                    <p>No vendemos, transferimos ni compartimos tus datos personales con terceros para fines comerciales. Tu información es confidencial.</p>
+                    <h6 class="text-light fw-bold mt-3">3. Derechos ARCO</h6>
+                    <p>Puedes solicitar en cualquier momento la corrección, actualización o eliminación de tus datos escribiéndonos a <a href="mailto:contacto@tigerdevlabs.lat" style="color:var(--g2)">contacto@tigerdevlabs.lat</a> o <a href="mailto:soporte@tigerdevlabs.lat" style="color:var(--g2)">soporte@tigerdevlabs.lat</a>.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-ghost btn-sm" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL TÉRMINOS -->
+    <div class="modal fade" id="modalTerminos" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content glass-modal">
+                <div class="modal-header">
+                    <h5 class="modal-header-title fw-bold text-light mb-0 mono"><i class="bi bi-file-text me-2" style="color:var(--g2)"></i>Términos y Condiciones</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body text-secondary small">
+                    <h6 class="text-light fw-bold">1. Servicios Prestados</h6>
+                    <p>Tiger DevLabs ofrece desarrollo de páginas web, aplicaciones web, MVPs, diseño UI/UX e ingeniería de software a medida.</p>
+                    <h6 class="text-light fw-bold mt-3">2. Entregables y Propiedad</h6>
+                    <p>Una vez completado el proyecto y cubiertos los acuerdos comerciales, el código fuente y activos acordados pasan a ser propiedad del cliente según lo estipulado en la propuesta de trabajo.</p>
+                    <h6 class="text-light fw-bold mt-3">3. Soporte y Mantenimiento</h6>
+                    <p>Para consultas o requerimientos posteriores a la entrega, nuestro equipo ofrece canales de soporte especializado mediante <a href="mailto:soporte@tigerdevlabs.lat" style="color:var(--g2)">soporte@tigerdevlabs.lat</a>.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-ghost btn-sm" data-bs-dismiss="modal">Entendido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DERECHOS -->
+    <div class="modal fade" id="modalDerechos" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content glass-modal">
+                <div class="modal-header">
+                    <h5 class="modal-header-title fw-bold text-light mb-0 mono"><i class="bi bi-c-circle me-2" style="color:var(--g2)"></i>Derechos de Autor</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body text-secondary small">
+                    <p class="text-light fw-medium mb-2">&copy; Tiger DevLabs. Todos los derechos reservados.</p>
+                    <p>El logotipo, la identidad visual, marca "Tiger DevLabs" y diseño de este sitio web están protegidos bajo las leyes internacionales de propiedad intelectual y derecho de autor.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-ghost btn-sm" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -796,6 +967,14 @@
             entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
         }, { threshold: .15 });
         document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+        function enviarEmailFooter(e) {
+            e.preventDefault();
+            const dest = document.getElementById('emailDestinatario').value;
+            const asunto = encodeURIComponent(document.getElementById('emailAsunto').value);
+            const mensaje = encodeURIComponent(document.getElementById('emailMensaje').value);
+            window.location.href = `mailto:${dest}?subject=${asunto}&body=${mensaje}`;
+        }
     </script>
 </body>
 
