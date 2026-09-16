@@ -71,14 +71,6 @@ const globalLimiter = rateLimit({
 app.use(globalLimiter);
 
 // ═══════════════════════════════════════════
-//  ARCHIVOS ESTÁTICOS
-// ═══════════════════════════════════════════
-app.use(express.static(path.join(__dirname, 'public'), {
-    dotfiles: 'deny',
-    index: false,
-}));
-
-// ═══════════════════════════════════════════
 //  RUTA: Página principal
 // ═══════════════════════════════════════════
 app.get('/', (req, res) => {
@@ -95,6 +87,21 @@ app.get('/ir/whatsapp', (req, res) => {
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
     res.redirect(302, url);
 });
+
+// ═══════════════════════════════════════════
+//  RUTA: Redirección a Facebook
+// ═══════════════════════════════════════════
+app.get('/ir/facebook', (req, res) => {
+    res.redirect(302, 'https://www.facebook.com/share/1MFBDYz23n/');
+});
+
+// ═══════════════════════════════════════════
+//  ARCHIVOS ESTÁTICOS
+// ═══════════════════════════════════════════
+app.use(express.static(path.join(__dirname, 'public'), {
+    dotfiles: 'deny',
+    index: false,
+}));
 
 // ═══════════════════════════════════════════
 //  SEGURIDAD: Bloquear rutas no definidas
