@@ -436,6 +436,23 @@
             transform: translateY(-3px)
         }
 
+        .social-ico-featured {
+            width: 44px;
+            height: 44px;
+            font-size: 1.15rem;
+            background: linear-gradient(135deg, rgba(124, 58, 237, .25), rgba(34, 211, 238, .25));
+            border-color: var(--g2);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(34, 211, 238, .25);
+        }
+
+        .social-ico-featured:hover {
+            color: #fff;
+            border-color: #fff;
+            box-shadow: 0 6px 20px rgba(34, 211, 238, .45);
+            transform: translateY(-3px) scale(1.05);
+        }
+
         .chip {
             display: inline-flex;
             align-items: center;
@@ -700,10 +717,10 @@
                         <h5 class="fw-bold mb-1">Javier</h5>
                         <div class="role-tag mono">Ingeniero de Desarrollo</div>
                         <p class="text-secondary mt-3 mb-3">Arquitectura, frontend, backend y experiencia de usuario. Convierte ideas en interfaces vivas — desde el diseño que ves hasta el motor que lo hace funcionar.</p>
-                        <div class="d-flex justify-content-center gap-2">
-                            <a href="#" class="social-ico"><i class="bi bi-github"></i></a>
-                            <a href="#" class="social-ico"><i class="bi bi-linkedin"></i></a>
-                            <a href="https://javierzanabria.tigerdevlabs.lat/" target="_blank" rel="noopener noreferrer" class="social-ico"><i class="bi bi-globe"></i></a>
+                        <div class="d-flex justify-content-center align-items-center gap-2">
+                            <a href="https://javierzanabria.tigerdevlabs.lat/" target="_blank" rel="noopener noreferrer" class="social-ico social-ico-featured" title="Sitio Web / Portafolio"><i class="bi bi-globe"></i></a>
+                            <a href="#" class="social-ico" title="GitHub"><i class="bi bi-github"></i></a>
+                            <a href="#" class="social-ico" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
                         </div>
                     </div>
                 </div>
